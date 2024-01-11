@@ -1,17 +1,19 @@
 {
   "name": "mini-vue3",
   "version": "1.0.0",
-  "description": "# 前言 手写简化版本的vue3核心源码，用于学习理解vue3源码。",
+  "description": "手写简化版本的vue3核心源码，用于学习理解vue3源码。",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -c -w"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/silin001/mini-vue3.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "sisi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/silin001/mini-vue3/issues"
