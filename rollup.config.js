@@ -1,9 +1,10 @@
 /*
  * @Date: 2024-01-11 23:18:52
- * @LastEditTime: 2024-01-12 23:11:57
+ * @LastEditTime: 2024-01-12 23:15:21
  * @Description: rollup配置文件
  * @FilePath: /my-v3ts-project/Users/sisi/Desktop/myWeb/my-project/mini-vue3/rollup.config.js
  */
+// import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 
