@@ -1,16 +1,36 @@
 lockfileVersion: 5.4
 
-specifiers:
-  '@babel/core': ^7.23.7
-  '@babel/preset-env': ^7.23.8
-  rollup: ^4.9.4
-  rollup-plugin-babel: ^4.4.0
+importers:
 
-devDependencies:
-  '@babel/core': registry.npmmirror.com/@babel/core/7.23.7
-  '@babel/preset-env': registry.npmmirror.com/@babel/preset-env/7.23.8_@babel+core@7.23.7
-  rollup: registry.npmmirror.com/rollup/4.9.4
-  rollup-plugin-babel: registry.npmmirror.com/rollup-plugin-babel/4.4.0_jfjkxh4fzmsesxwbcohiuphgde
+  .:
+    specifiers:
+      '@babel/core': ^7.23.7
+      '@babel/preset-env': ^7.23.8
+      rollup: ^4.9.4
+      rollup-plugin-babel: ^4.4.0
+    devDependencies:
+      '@babel/core': registry.npmmirror.com/@babel/core/7.23.7
+      '@babel/preset-env': registry.npmmirror.com/@babel/preset-env/7.23.8_@babel+core@7.23.7
+      rollup: registry.npmmirror.com/rollup/4.9.4
+      rollup-plugin-babel: registry.npmmirror.com/rollup-plugin-babel/4.4.0_jfjkxh4fzmsesxwbcohiuphgde
+
+  packages/reactivity:
+    specifiers:
+      '@mini-vue3/shared': workspace:^1.0.0
+    dependencies:
+      '@mini-vue3/shared': link:../shared
+
+  packages/shared:
+    specifiers:
+      '@mini-vue3/shared': workspace:^1.0.0
+    dependencies:
+      '@mini-vue3/shared': 'link:'
+
+  packages/vue:
+    specifiers:
+      '@mini-vue3/reactivity': workspace:^1.0.0
+    dependencies:
+      '@mini-vue3/reactivity': link:../reactivity
 
 packages:
 

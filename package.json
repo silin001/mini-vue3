@@ -2,11 +2,12 @@
   "name": "mini-vue3",
   "version": "1.0.0",
   "description": "手写简化版本的vue3核心源码，用于学习理解vue3源码。",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",

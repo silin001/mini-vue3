@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3 id="h3"></h3>
+    </div>
+     <!-- 引入 miniVue.js，miniVue3将会绑定到 window-->
+    <script src="../dist/minivue3.js"></script>
+    <script >
+     console.log('my-mini-vue3：', Minivue3)
+    //  console.log('my-mini-vue3：', minivue3.reacive)
+    //  let { reactive } = Minivue3
+    //  console.log('🚀🚀 ~ file: index.html:18 ~ reactive:', reactive)
+    //  document.querySelector('#h3').innerText = reactive
+      // const obj = reactive({
+      //   name: {
+      //     a: '张三',
+      //   },
+      // })
+
+      // effect(() => {
+      //   document.querySelector('#app').innerText = obj.name.a
+      // })
+
+      // setTimeout(() => {
+      //   obj.name.a = '李四'
+      // }, 2000)
+    </script>
+  </body>
+</html>
