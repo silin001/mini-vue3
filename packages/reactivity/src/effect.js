@@ -1,6 +1,6 @@
 /*
  * @Date: 2024-01-16 10:36:04
- * @LastEditTime: 2024-01-16 16:01:43
+ * @LastEditTime: 2024-01-16 16:33:10
  * @Description: effect、track、trigger
  * @FilePath: \yike-design-devd:\web_si\my_webDemo\my-open-source\mini-vue3\packages\reactivity\src\effect.js
  */
@@ -34,7 +34,7 @@ export const track =  (target, key) => {
   depsMap = new Map()
   targetMap.set(target, depsMap)
  }
- // 2------
+ // 2-----
  let deps = depsMap.get(key)
  if (!deps) {
   deps = new Set()

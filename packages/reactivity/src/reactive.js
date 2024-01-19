@@ -1,6 +1,6 @@
 /*
  * @Date: 2024-01-12 11:16:47
- * @LastEditTime: 2024-01-15 16:09:43
+ * @LastEditTime: 2024-01-16 15:47:00
  * @Description: reactive 实现（代理一个具体对象）
  * @FilePath: \yike-design-devd:\web_si\my_webDemo\my-open-source\mini-vue3\packages\reactivity\src\reactive.js
  */
@@ -30,14 +30,14 @@ export const reactive = (target) => {
  * @return {*}
  */
 function createReactiveObject (target, proxyMap, baseHandlers) {
-  // get: 如果已经代理过直接返回
+  // 1、get: 如果已经代理过直接返回
   const existingProxy = proxyMap.get(target)
   if (existingProxy) {
     return existingProxy
   }
-  // set: 创建proxy
+  // 2、如果没有被代理，直接创建一个 proxy进行代理
   const proxy = new Proxy(target, baseHandlers)
-  // 把创建好的proxy 给存储起来
+  // 3、把创建好的 proxy 给存储到全局 reactiveMap
   proxyMap.set(target, proxy)
   return proxy
 
