@@ -1,6 +1,6 @@
 /*
  * @Date: 2024-01-15 15:47:25
- * @LastEditTime: 2024-01-16 15:48:25
+ * @LastEditTime: 2024-01-20 12:11:03
  * @Description:
  * @FilePath: \yike-design-devd:\web_si\my_webDemo\my-open-source\mini-vue3\packages\reactivity\src\baseHandlers.js
  */
@@ -17,7 +17,7 @@ export const mutableHandlers = {
 
 function createGetter () {
  return function get (target, key, receiver) {
-  console.log('proxy get读取')
+  // console.log('proxy get读取')
   // 正常访问，使用 Reflect 反射对象
   const result = Reflect.get(target,key,receiver)
   // TODO 核心：依赖收集
@@ -34,7 +34,7 @@ function createGetter () {
 
 function createSetter () {
  return function set (target, key, newValue, receiver) {
-  console.log('proxy set设置')
+  // console.log('proxy set设置')
   const result = Reflect.set(target, key, newValue, receiver)
   // TODO 触发set时候进行 依赖触发
   trigger(target, key)
