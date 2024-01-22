@@ -1,6 +1,6 @@
 /*
  * @Date: 2024-01-12 11:16:47
- * @LastEditTime: 2024-01-16 15:47:00
+ * @LastEditTime: 2024-01-22 13:30:08
  * @Description: reactive 实现（代理一个具体对象）
  * @FilePath: \yike-design-devd:\web_si\my_webDemo\my-open-source\mini-vue3\packages\reactivity\src\reactive.js
  */
@@ -24,8 +24,8 @@ export const reactive = (target) => {
 /**
  * @description: 创建处理代理对象
  * 核心是proxy，目的是可以监听到用户get、set操作
- * @param {*} target
- * @param {*} proxyMap
+ * @param {*} target 目标对象
+ * @param {*} proxyMap 全局变量缓存proxy的 weakMap
  * @param {*} baseHandlers
  * @return {*}
  */
@@ -39,6 +39,7 @@ function createReactiveObject (target, proxyMap, baseHandlers) {
   const proxy = new Proxy(target, baseHandlers)
   // 3、把创建好的 proxy 给存储到全局 reactiveMap
   proxyMap.set(target, proxy)
+  console.log('全局reactiveMap->', reactiveMap)
   return proxy
 
 }
