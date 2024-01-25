@@ -1,6 +1,6 @@
 /*
  * @Date: 2024-01-16 10:36:04
- * @LastEditTime: 2024-01-22 16:09:25
+ * @LastEditTime: 2024-01-25 16:53:11
  * @Description: effect、track、trigger
  * @FilePath: \yike-design-devd:\web_si\my_webDemo\my-open-source\mini-vue3\packages\reactivity\src\effect.js
  */
@@ -11,7 +11,7 @@ export let activeEffect
 /** 栈结构存储当前选中的effect */
 const effectStack = []
 
-/** 使用WeakMap 收集effect */
+/** 使用WeakMap 数据结构来收集effect */
 const targetMap = new WeakMap()
 
 /**
@@ -56,8 +56,6 @@ class ReactiveEffect {
   }
 }
 
-
-
 /**
  * @description: 依赖收集（存储）
  * track中完成 reactive-key-effect之间关系的构建，
@@ -72,10 +70,10 @@ export const track = (target, key) => {
   if (!activeEffect) {
     return
   }
-  // targetMap 是用于存储 effect的全局变量，实际是 new WeakMap（用于缓存）
+  // targetMap 是用于存储 effect 的全局变量，实际是 new WeakMap（用于缓存）
   // 1、获取全局存储的 effect
   let depsMap = targetMap.get(target)
-  // 1-2、首次 depsMap 肯定是不存在的，那就需要初始化定义一个新的
+  // 1-2、首次 depsMap 肯定是不存在的，那就需要初始化设置一个新的
   if (!depsMap) {
     depsMap = new Map()
     // 存储到全局变量 targetMap
@@ -83,12 +81,11 @@ export const track = (target, key) => {
   }
   console.log('全局收集到的effect--->',targetMap)
   // --------------------------------------------
-  // 2、使用key从 depsMap 中获取 deps
-  let deps = depsMap.get(key)
-  // 2-2、当前 key为 name首次也是不存在的，也需要定义一个新的
+  // 2、使用用户访问的变量 key从 depsMap 中获取 deps
+  let deps = depsMap.get(key) // 此时的key=name也就是访问的 obj.name
+  // 2-2、当前 key 为用户访问的 name时，首次肯定也是不存在的，也需要定义设置一个新的
   if (!deps) {
-    deps = new Set()
-    // 不存在就需要设置 depsMap （第一步获取到的 depsMap 是一个Map结构，key是name；value是一个 Set结构（Set结构特点：元素不可重复数组））
+    deps = new Set() // 不存在就需要设置 depsMap （key是name；value是一个 Set结构（Set结构特点：元素不可重复数组））
     depsMap.set(key, deps) // 这里的key：响应式对象的指定属性（name）；value：新建的Set结构 deps
   }
   // debugger
@@ -107,17 +104,18 @@ export const track = (target, key) => {
  */
 export const trigger = (target, key) => {
   console.log('trigger 依赖触发')
+  // 使用全局收集的所有 effect 变量 targetMap 查找到当前的执行触发依赖
   const depsMap = targetMap.get(target)
-  // 如果拿不到Map,这说明当前对象没有effect要触发
+  // 如果拿不到effect,这说明当前对象没有effect要触发
   if (!depsMap) {
     return
   }
-  const deps = depsMap.get(key) // 此时的 deps 为 set数据结构
+  const deps = depsMap.get(key) // 使用key来获取 set结构数据，此时的 deps 为 set数据结构
   // 虽然当前对象中存在effect, 但是本次读取的对象内变量不存在,所以此处获取不到值
   if (!deps) {
     return
   }
-  debugger
+  // debugger
   // 触发所有依赖
   triggerEffects(deps)
 

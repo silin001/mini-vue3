@@ -1,10 +1,10 @@
 /*
  * @Date: 2024-01-12 11:16:47
- * @LastEditTime: 2024-01-22 13:30:08
+ * @LastEditTime: 2024-01-25 16:44:54
  * @Description: reactive 实现（代理一个具体对象）
  * @FilePath: \yike-design-devd:\web_si\my_webDemo\my-open-source\mini-vue3\packages\reactivity\src\reactive.js
  */
-import { isArray } from '@mini-vue3/shared'
+// import { isArray } from '@mini-vue3/shared'
 import { mutableHandlers } from './baseHandlers'
 
 /** 使用 weakMap 缓存 proxy */
