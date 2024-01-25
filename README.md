@@ -2,8 +2,7 @@
 
 # 说明
 
-手写简化版本的 vue3 核心源码，只保留核心逻辑，用于学习理解 vue3 源码的实现原理。
-
+参考了一些网上学习资料，只保留vue3源码的核心逻辑，实现一个极简版本的 mini-vue3，用于学习理解 vue3 源码原理。
 
 # 目录说明
 
@@ -19,16 +18,22 @@
        |---...
        |---index.js
      |---package.json
-  |---vue 我们最终vue
+  |---vue 最终的minivuejs
      |---src
        |---...
        |---index.js 打包入口
      |---package.json
 ```
-vue3采用monorepo进行包管理，而 monorepo 由pnpm提供，所以需要一定要预先安装pnpm
+## monorepo进行包管理
+- vue3采用monorepo进行包管理，而 monorepo 由 pnpm 提供，所以一定要预先安装 pnpm
 
-packages下每个模块都要包含src、index.js、package.json，且需要注意package.json中name名称
+- packages下每个模块都要包含src、index.js、package.json，且需要注意package.json中name名称
 
 
-# 案例运行
-在​打包完成后，将会在packages/vue/dist，路径下生成打包后的vue3的代码，然后我们可以去packages/vue/examples 提供的案例中运行打包后代码，在目标html文件通过vscode启动live server，即可完成vue3示例的运行。
+# 源码运行调试
+在​打包完成后，将会在 packages/vue/dist 路径下生成打包后的mini-vue3的源码。然后就可以去 packages/vue/examples 下提供的案例中html文件中引入，然后通过vscode启动live server，即可完成vue3示例的运行。
+
+
+# star 支持、学习交流
+
+你的star是对我最大的支持， 技术交流群：加vx：xbql2p8b01（备注来意！）
