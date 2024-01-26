@@ -1,0 +1,33 @@
+<!--
+ * @Date: 2024-01-26 15:18:40
+ * @LastEditTime: 2024-01-26 15:43:39
+ * @Description: cdn方式使用 vue3
+ * @FilePath: \yike-design-devd:\web_si\my_webDemo\my-open-source\mini-vue3\packages\vue\examples\cdn-vue3.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">{{message}}</div>
+  </body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // console.log('vue3----', window)
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const message = ref("Hello vue!");
+          console.log(message)
+          return {
+            message,
+          };
+        },
+      }).mount("#app");
+    </script>
+</html>

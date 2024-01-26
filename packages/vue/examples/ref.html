@@ -1,0 +1,40 @@
+<!--
+ * @Date: 2024-01-26 15:42:08
+ * @LastEditTime: 2024-01-26 16:26:12
+ * @Description: ref 使用
+ * @FilePath: \yike-design-devd:\web_si\my_webDemo\my-open-source\mini-vue3\packages\vue\examples\ref.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3 id="h3"></h3>
+    </div>
+    <!-- 引入 miniVue.js，miniVue3将会绑定到 window-->
+    <script src="../dist/minivue3.js"></script>
+    <script>
+      console.log("my====mini-vue3", Minivue3);
+      const { ref, effect } = Minivue3;
+
+      const msg = ref('你好 世界');
+      console.log(msg.value)
+      const a = ref(msg)
+      // effect初始化
+      effect(() => {
+        document.querySelector('#h3').innerText = msg.value
+      })
+      // ref改变
+      setTimeout(() => {
+        msg.value = 200
+        console.log(msg.value)
+      }, 1000)
+
+    </script>
+  </body>
+</html>
