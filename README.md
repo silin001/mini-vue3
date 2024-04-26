@@ -1,5 +1,10 @@
 # mini-vue3
 
+# 技术栈
+
+- javascript
+- rollup
+
 # 说明
 
 参考了一些网上学习资料，只保留vue3源码的核心逻辑，实现一个极简版本的 mini-vue3，用于学习理解 vue3 源码原理。
